@@ -8,7 +8,7 @@
       @input='updateValue'
       @blur='blur' />
     <label class='ms-SearchBox-label'>
-      <i class='ms-SearchBox-icon ms-Icon ms-Icon--Search'></i>
+      <i class='ms-SearchBox-icon ms-Icon ms-Icon--{{ searchIcon }}'></i>
       <span class='ms-SearchBox-text' v-if='!hasValue'>{{ placeholder }}</span>
     </label>
     <div class='ms-CommandButton ms-SearchBox-clear ms-CommandButton--noLabel' @mousedown='clearValue'>
@@ -30,6 +30,11 @@
     props: {
       value: String,
       placeholder: String,
+
+      searchIcon: {
+        type: String,
+        default: 'Search'
+      },
 
       collapsed: {
         type: Boolean,
