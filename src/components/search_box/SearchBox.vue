@@ -8,7 +8,7 @@
       @input='updateValue'
       @blur='blur' />
     <label class='ms-SearchBox-label'>
-      <i :class="'ms-SearchBox-icon ms-Icon ms-Icon--{{ searchIcon }}'"></i>
+      <i class='ms-SearchBox-icon ms-Icon' :class="searchIconClass"></i>
       <span class='ms-SearchBox-text' v-if='!hasValue'>{{ placeholder }}</span>
     </label>
     <div class='ms-CommandButton ms-SearchBox-clear ms-CommandButton--noLabel' @mousedown='clearValue'>
@@ -54,6 +54,9 @@
     },
 
     computed: {
+      searchIconClass() {
+        return this.searchIcon ? `ms-Icon--${this.searchIcon}` : 'ms-Icon--Search';
+      },
       searchBoxClass() {
         return {
           [`ms-SearchBox--${this.type}`]: !!this.type,
